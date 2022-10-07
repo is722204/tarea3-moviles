@@ -20,8 +20,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: AppBarTheme(color: Colors.grey[800]),
         primaryColor: Colors.black,
-        
-        
       ),
       title: 'Material App',
       home: const HomePage()

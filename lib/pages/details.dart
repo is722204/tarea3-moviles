@@ -35,15 +35,15 @@ class DetailsBook extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: Text("${book["volumeInfo"]["title"]}",style: const TextStyle(fontSize: 23),),
+                    child: Text("${book["volumeInfo"]["title"]?? "-"}",style: const TextStyle(fontSize: 23),),
                   ),
                 ],
               ),
             ),
             Text("${book["volumeInfo"]["publishedDate"]}",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
-            Text("Páginas: ${book["volumeInfo"]["pageCount"]}",style: const TextStyle(fontSize: 16)),
+            Text("Páginas: ${book["volumeInfo"]["pageCount"] ?? "-"}",style: const TextStyle(fontSize: 16)),
             GestureDetector(
-              child: Text("${book["volumeInfo"]["description"]}",style: const TextStyle(fontStyle: FontStyle.italic,fontSize: 16),overflow: TextOverflow.ellipsis,maxLines: context.watch<BooksProvider>().showComplete?500:4,),
+              child: Text("${book["volumeInfo"]["description"]?? "-"}",style: const TextStyle(fontStyle: FontStyle.italic,fontSize: 16),overflow: TextOverflow.ellipsis,maxLines: context.watch<BooksProvider>().showComplete?500:4,),
               onTap: (){ context.read<BooksProvider>().setShowComplete();},
             )
           ],
